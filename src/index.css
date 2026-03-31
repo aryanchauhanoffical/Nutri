@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: #faf8f4;
+    color: #1a1a1a;
+    line-height: 1.5;
+    min-height: 100dvh;
+  }
+
+  .dark body {
+    background-color: #111111;
+    color: #e5e5e5;
+  }
+
+  #root {
+    min-height: 100dvh;
+  }
+
+  /* Focus rings */
+  :focus-visible {
+    outline: 2px solid #3a7d44;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .dark :focus-visible {
+    outline-color: #5aad67;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #374151;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-card shadow-card p-5;
+  }
+
+  .btn-primary {
+    @apply bg-green-primary text-white font-medium px-4 py-2 rounded-pill text-sm hover:bg-green-dark transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-primary focus-visible:ring-offset-2 cursor-pointer;
+  }
+
+  .btn-ghost {
+    @apply text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-800 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-150 cursor-pointer;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-150 cursor-pointer w-full;
+  }
+
+  .nav-item.active {
+    @apply text-green-primary dark:text-green-400 bg-green-light dark:bg-green-primary/20 font-semibold;
+  }
+
+  .stat-card {
+    @apply card flex flex-col gap-3;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-gray-100 dark:bg-zinc-800 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+}
+
+/* Pulsing border animation for AI banner */
+@keyframes pulse-border {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ai-banner-border {
+  animation: pulse-border 2.5s ease-in-out infinite;
+}
+
+/* Streak pill styles */
+.streak-pill {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Number transition */
+.number-animate {
+  transition: all 0.4s ease-out;
+}
+
+/* Custom checkbox */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.custom-checkbox:checked {
+  background-color: #3a7d44;
+  border-color: #3a7d44;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px 9px;
+}
+
+.dark .custom-checkbox {
+  border-color: #4b5563;
+}
+
+/* Recharts responsive */
+.recharts-wrapper {
+  font-family: 'DM Sans', sans-serif !important;
+}
