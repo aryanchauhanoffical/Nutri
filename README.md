@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# 🥗 Nutri — Personal Health Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> An Apple-inspired, AI-powered nutrition & habit tracking web app built with React, TypeScript, and Framer Motion.
 
-Currently, two official plugins are available:
+![Nutri Dashboard](https://img.shields.io/badge/React-19-61DAFB?logo=react) ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript) ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38BDF8?logo=tailwindcss) ![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-black?logo=framer) ![Zustand](https://img.shields.io/badge/Zustand-5-orange)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Feature | Description |
+|---------|-------------|
+| **Dashboard** | Real-time calorie, protein & hydration stats with animated progress bars |
+| **Meal Log** | Log meals with autocomplete food database, timeline view, edit/delete |
+| **AI Recommendations** | 6 personalized meal cards with match scores, macros & rationale |
+| **Habit Tracker** | 14-day streak calendar, progress rings, milestone badges |
+| **Grocery List** | AI-curated checklist grouped by category, with strikethrough animation |
+| **Dark Mode** | Full dark theme, persisted in localStorage |
+| **Responsive** | Desktop sidebar, collapsible on tablet, bottom nav on mobile |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🖥️ Screenshot
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The dashboard features a clean, minimal design with DM Sans + DM Serif Display typography, a warm cream background, and rich green accents.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Installation
+
+```bash
+git clone https://github.com/aryanchauhanoffical/Nutri.git
+cd Nutri
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) and click **"🥗 Continue as Guest (Demo)"** to access the full app immediately.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🏗️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 19 + TypeScript 5.9 |
+| Build | Vite 8 |
+| Styling | Tailwind CSS 3.4 |
+| Animations | Framer Motion 12 |
+| Charts | Recharts 3 |
+| State | Zustand 5 (persisted) |
+| Routing | React Router DOM 7 |
+| Icons | Lucide React |
+| Toasts | React Hot Toast |
+
+---
+
+## 📁 Project Structure
+
 ```
+src/
+├── components/
+│   ├── layout/          # Sidebar, BottomNav, Layout
+│   └── ui/              # AnimatedNumber, ProgressBar
+├── data/
+│   └── seed.ts          # Mock data: meals, groceries, habits, recommendations
+├── features/
+│   ├── auth/            # Auth Zustand store
+│   └── preferences/     # User preferences store
+├── pages/               # Dashboard, MealLog, Recommendations, Habits, Grocery
+├── store/
+│   └── useStore.ts      # Main app state (meals, groceries, habits, dark mode)
+├── types/               # TypeScript interfaces
+└── lib/
+    └── animations.ts    # Shared Framer Motion variants
+```
+
+---
+
+## 🎨 Design System
+
+- **Fonts:** DM Sans (UI) + DM Serif Display (headings)
+- **Primary:** `#3a7d44` (green)
+- **Background:** `#faf8f4` (warm cream)
+- **Accent:** `#e8704a` (coral) · `#6366f1` (indigo)
+- **Card radius:** 16px · **Border:** 1px soft
+
+---
+
+## ♿ Accessibility
+
+- Full `aria-label` coverage on all interactive elements
+- Keyboard navigation on all controls
+- Focus visible rings
+- `role` attributes on progress bars and regions
+- Screen-reader-friendly `noscript` fallback
+
+---
+
+## 📄 License
+
+MIT © 2026 Nutri
