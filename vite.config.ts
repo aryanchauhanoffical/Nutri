@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
@@ -13,16 +13,6 @@ export default defineConfig({
   build: {
     target: 'esnext',
     sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'motion': ['framer-motion'],
-          'charts': ['recharts'],
-          'store': ['zustand'],
-        },
-      },
-    },
   },
   server: {
     headers: {
@@ -34,5 +24,22 @@ export default defineConfig({
       'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'src/test/', '**/*.d.ts', 'src/main.tsx'],
+      thresholds: {
+        statements: 60,
+        branches: 50,
+        functions: 60,
+        lines: 60,
+      },
+    },
+  },
 });
+
 
